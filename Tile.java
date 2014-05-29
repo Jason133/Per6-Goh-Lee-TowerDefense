@@ -1,9 +1,8 @@
 
 public class Tile {
-	// Has its own value
-	// Tower Being able to be placed = 0
-	// Tower placed here = 0.5
-	// Enemy Path = 1
+	// 0 = freetower
+	// 2 = tower
+	// 1 = enemy path/ enemy (to be decided) 
 	private int value;
 	
 	// On the 2D array, these are the locations
