@@ -1,8 +1,10 @@
 
 public class Tile {
 	// 0 = freetower
-	// 2 = tower
-	// 1 = enemy path/ enemy (to be decided) 
+	// 2 = tower occupied
+	// 1 = enemy path
+	// 3 = Base (where they attack from) 
+	// 4 = spawn place
 	private int value;
 	
 	// On the 2D array, these are the locations
@@ -47,12 +49,4 @@ public class Tile {
 		res += value; 
 		return res;
 	}
-	
-	
-	
-	
-	
-	
-	
-
 }

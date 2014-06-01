@@ -1,21 +1,22 @@
 
-public class Tower extends Tile {
+public class Tower {
 
+	// Will continue over weekend
+	// Each FREETOWER (tile) class will have its own tower (variable)
+	// it will initally be null
+	// if you add(map m, xcor,ycor) change the freetower appropriately
+	// We can just leave instance variables alone, like speed/etc.
+	// Just want to be able to insert it and have the tiles have 
+	// the freetower and hasTower on it (hasTower can be a method)
+	// Main thing is just to add and place
+	
+	// ENEMIES: 
+	// Maybe make the path a linked list? (for order of the movement) 
+	// They come second after placing tower
+	// maybe find way to make them move? 
+	
 	public Tower(int xcor, int ycor) {
-		super(2,xcor,ycor);
-		this.setXcor(xcor);
-		this.setYcor(ycor);
+		
 	}
-	
-	public void add(Map towerdefense) {
-		int xcor = this.getXcor();
-		int ycor = this.getYcor();
-		if (towerdefense.getMap(xcor, ycor).getValue() == 0) {
-			towerdefense.setMap(this);
-		} else { 
-			return;
-		}
-	}
-	
 
 }
