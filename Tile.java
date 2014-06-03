@@ -5,11 +5,11 @@ public class Tile {
 	// 1 = enemy path
 	// 3 = Base (where they attack from) 
 	// 4 = spawn place
-	private int value;
+	protected int value;
 	
 	// On the 2D array, these are the locations
-	private int xcor; 
-	private int ycor;
+	protected int xcor; 
+	protected int ycor;
 	
 	// Setters/Getters
 	public int getValue() {
@@ -42,6 +42,11 @@ public class Tile {
 		this.value = value;
 		this.xcor = xcor;
 		this.ycor = ycor;
+	}
+	
+	public Tile copy() {
+		Tile newTile = new Tile(this.value, this.xcor, this.ycor);
+		return newTile;
 	}
 	
 	public String toString() {

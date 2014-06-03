@@ -3,7 +3,7 @@ public class Base extends Tile {
 	private int lives;
 	
 	public Base(int xcor, int ycor) {
-		super(3,xcor,ycor);
+		super(4,xcor,ycor);
 		this.setXcor(xcor);
 		this.setYcor(ycor);
 	}

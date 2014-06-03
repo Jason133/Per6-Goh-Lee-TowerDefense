@@ -20,8 +20,16 @@ public class Map {
 		return map[ycor][xcor];
 	}
 
+	public int getLength() {
+		return map[0].length;
+	}
+
+	public int getWidth() {
+		return map.length;
+	}
+
 	// Takes a filename
-	// Reads it into the 2D array 
+	// Reads it into the 2D array
 	// Mapifies everything correctly, so now there are all tiles
 	public Map(String filename) {
 		try {
@@ -68,14 +76,6 @@ public class Map {
 		mapify();
 	}
 
-	// Got Rid of this, have a new constructor to read in text files
-
-	/*
-	 * public Map(int row, int column) { map = new Tile[row][column]; for (int i
-	 * = 0; i < map.length; i++) { for (int j = 0; j < map[i].length; j++) {
-	 * Tile a = new Tile(-1, i, j); map[i][j] = a; } } }
-	 */
-
 	public String toString() {
 		String res = "";
 		for (int i = 0; i < map.length; i++) {
@@ -85,14 +85,6 @@ public class Map {
 			res += "\n";
 		}
 		return res;
-	}
-
-	public int getLength() {
-		return map.length;
-	}
-
-	public int getWidth() {
-		return map[0].length;
 	}
 
 	// Reading files in
@@ -108,7 +100,7 @@ public class Map {
 		reader.close();
 		return cnt;
 	}
-	
+
 	// Instantiates all the tiles
 	// Freetowers are where towers can be stored
 	// Enemy is where enemies can be stored
@@ -121,7 +113,7 @@ public class Map {
 					FreeTower a = new FreeTower(i, j);
 					map[i][j] = a;
 				} else if (map[i][j].getValue() == 1) {
-					Enemy a = new Enemy(i, j);
+					EnemyTile a = new EnemyTile(i, j);
 					map[i][j] = a;
 				} else if (map[i][j].getValue() == 3) {
 					SpawnLoc a = new SpawnLoc(i, j);
@@ -134,6 +126,28 @@ public class Map {
 				}
 			}
 		}
+	}
+	
+	public void addStuff() {
+		Scanner a = new Scanner(System.in);
+		int readin = 0; 
+		while (readin != 1) {
+			// Can be replaced by Mouse later on if using GUI
+			System.out.println("Add Tower, Type (1)");
+		    readin = Integer.parseInt(a.next());
+		}
+		int xcor,ycor = -9001;
+		System.out.println("Input x-cor of where to put in");
+		xcor = Integer.parseInt(a.next());
+		System.out.println("Input y-cor of where to put in");
+		ycor = Integer.parseInt(a.next());
+		if (this.getMap(xcor, ycor).getValue() != 0) {
+			System.out.println("Invalid Location");
+		} else { 
+			((FreeTower)(this.getMap(xcor,ycor))).addTower(new Tower());
+			System.out.println("Tower added!");
+		}
+		
 	}
 
 }
