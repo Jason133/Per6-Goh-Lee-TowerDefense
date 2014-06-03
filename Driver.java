@@ -9,6 +9,9 @@ public class Driver {
 		System.out.println(a.getLength());
 		System.out.println(a.getWidth());
 		
+		Enemy b = new Enemy(a);
+		System.out.println(a.toString());
+		/*
 		Scanner scan = new Scanner(System.in);
 		boolean keepGoing = true;
 		while (keepGoing) {
@@ -21,7 +24,7 @@ public class Driver {
 			}
 			System.out.println(a.toString());
 		}
-		
+		*/
 		
 		
 		// Future Note that it must be in this format

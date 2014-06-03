@@ -7,13 +7,19 @@ public class EnemyTile extends Tile {
 		return righthere;
 	}
 
-	public void addEnemy(Enemy righthere) {
-		this.righthere = righthere;
+	public void addEnemy(Enemy c) {
 		if (isOpen()) {
+			righthere = c;
 			this.setValue(7);
 		} else {
 			// Do nothing
 		}
+	}
+	
+	public void removed() {
+		// This occurs when function is called, indicating the enemy has left
+		righthere = null;
+		this.setValue(1);
 	}
 	
 	public boolean isOpen() {

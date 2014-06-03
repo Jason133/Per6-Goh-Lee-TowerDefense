@@ -1,8 +1,9 @@
 
-public class SpawnLoc extends Tile {
+public class SpawnLoc extends EnemyTile {
 
 	public SpawnLoc(int xcor, int ycor) {
-		super(3,xcor,ycor);
+		super(xcor,ycor);
+		this.setValue(3);
 		this.setXcor(xcor);
 		this.setYcor(ycor);
 	}
