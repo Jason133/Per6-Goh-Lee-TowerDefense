@@ -4,11 +4,21 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.LineNumberReader;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Map {
 
 	private Tile[][] map;
+	private ArrayList<Enemy> EnemyList = new ArrayList<Enemy>();
+
+	public ArrayList<Enemy> getEnemyList() {
+		return EnemyList;
+	}
+
+	public void setEnemyList(ArrayList<Enemy> enemyList) {
+		EnemyList = enemyList;
+	}
 
 	public void setMap(Tile a) {
 		int ycor = a.getYcor();
@@ -64,7 +74,7 @@ public class Map {
 						cols = 0;
 					}
 					int blah = Integer.parseInt(a);
-					Tile wat = new Tile(blah, rows, cols);
+					Tile wat = new Tile(blah, cols, rows);
 					map[rows][cols] = wat;
 					cols++;
 				}
@@ -110,16 +120,16 @@ public class Map {
 		for (int i = 0; i < map.length; i++) {
 			for (int j = 0; j < map[i].length; j++) {
 				if (map[i][j].getValue() == 0) {
-					FreeTower a = new FreeTower(i, j);
+					FreeTower a = new FreeTower(j, i);
 					map[i][j] = a;
 				} else if (map[i][j].getValue() == 1) {
-					EnemyTile a = new EnemyTile(i, j);
+					EnemyTile a = new EnemyTile(j, i);
 					map[i][j] = a;
 				} else if (map[i][j].getValue() == 3) {
-					SpawnLoc a = new SpawnLoc(i, j);
+					SpawnLoc a = new SpawnLoc(j, i);
 					map[i][j] = a;
 				} else if (map[i][j].getValue() == 4) {
-					Base a = new Base(i, j);
+					Base a = new Base(j, i);
 					map[i][j] = a;
 				} else {
 					// Do nothing
@@ -148,6 +158,13 @@ public class Map {
 			System.out.println("Tower added!");
 		}
 		
+	}
+	
+	
+	public void EnemyMove() {
+		for (int i = 0; i < EnemyList.size(); i++) {
+			EnemyList.get(i).turn();
+		}
 	}
 
 }

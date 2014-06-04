@@ -32,6 +32,11 @@ public class EnemyTile extends Tile {
 		this.setYcor(ycor);
 	}
 
+	public void go() {
+		if (righthere != null) {
+			righthere.turn();
+		}
+	}
 	
 	
 }
