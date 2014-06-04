@@ -1,15 +1,15 @@
-class ProcessingTile {
+class Tile {
   
   int xCoor, yCoor, tileW, tileH;
   
-  ProcessingTile(int xCoor, int yCoor){
+  Tile(int xCoor, int yCoor){
     this.xCoor = xCoor;
     this.yCoor = yCoor;
     tileW = 50;
     tileH = 50;
   }
   
-  ProcessingTile(){
+  Tile(){
     tileW = 50;
     tileH = 50;
   }

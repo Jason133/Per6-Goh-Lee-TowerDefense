@@ -1,4 +1,4 @@
-public class ProcessingTower{
+public class Tower{
   
   int xCoor, yCoor, range, cost, type, damage;
   int outsideW, outsideH;
@@ -8,7 +8,7 @@ public class ProcessingTower{
   double projectileSpeed, projectileDX, projectileDY;
   String projectileShape;
   
-  ProcessingTower(int towerXCoor, int towerYCoor, int type){
+  Tower(int towerXCoor, int towerYCoor, int type){
     xCoor = towerXCoor;
     yCoor = towerYCoor;
     this.type = type;
@@ -19,7 +19,7 @@ public class ProcessingTower{
     } 
   }
   
-  ProcessingTower(int type){
+  Tower(int type){
     this.type = type;
     if(type == 1){
       range = 200;
@@ -45,7 +45,7 @@ public class ProcessingTower{
   }
   
   void displayTower(int XCoor, int YCoor, int type){
-    ProcessingTile t = new Tile();
+    Tile t = new Tile();
     t1W = t.getTileW() - 12;
     t1H = t.getTileH() - 12;
     if(type == 1){
@@ -64,11 +64,11 @@ public class ProcessingTower{
   }
   
   void createProjectile(){
-    ProcessingTile t = new Tile();
+    Tile t = new Tile();
     if(type == 1){
       fill(225, 80, 50);
       ellipse(xCoor +  t.getTileW()/2, yCoor + t.getTileH()/2, 5, 5);
-      projectileShape = "ellipse";
+      //projectileShape = "ellipse";
     }
   }
   

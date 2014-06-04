@@ -1,8 +1,8 @@
-public class ProcessingPlayer{
+class Player{
   
   int gold, score, lives;
   
-  ProcessingPlayer(){
+  Player(){
     gold = 200;
     score = 0;
     lives = 20;
@@ -31,36 +31,51 @@ public class ProcessingPlayer{
   }
   
   void purchaseTower(int towerType){
-    ProcessingTower t = new Tower(towerType);
+    Tower t = new Tower(towerType);
     gold -= t.getTowerCost();
   }
   
   // Towers sell for 70% of cost
   void sellTower(int towerType){
-    ProcessingTower t = new Tower(towerType);
+    Tower t = new Tower(towerType);
     gold += (int)(0.7 * t.getTowerCost());
   }
   
 }
 
   // Displays the score, gold, and lives of the player
-/*  PFont f;
+  PFont f;
   
   void setup(){
-    size(300, 300);
+    size(750, 750);
     f = createFont("Arial", 16, true);
     //Player p = new Player();
   }
   
   void draw(){
     background(255);
-    textFont(f, 12);
+    // Use TOWER TILE LATER
+    // Makes a grid of tiles
+    Tile tile = new Tile();
+    for(int i = 0; i < width / 50; i ++){
+      for(int j = 0; j < height / 50; j ++){
+        fill(0, 160, 50); // red, blue, green
+        rect(tile.getTileW() * i, tile.getTileH() * j, tile.getTileW(), tile.getTileH());
+      }
+    }
+    
+    Tower t = new Tower(100, 100, 1);
+    t.displayTower(100, 100, 1);
+    
+    // Displays player's score, gold, and lives
+    textFont(f, 16);
     fill(0);
-    rect(100, 100, 5, 5);
     Player p = new Player();
-    String s = "Score: " + p.getScore() + "    Gold: " + p.getGold() + "    Lives: " + p.getLives();
-    text(s, 10, 10);
+    String s = "Score: " + p.getScore() + "      Gold: " + p.getGold() + "      Lives: " + p.getLives();
+    text(s, 285, 725);
+    
+    
   }
-  */
+  
     
   
