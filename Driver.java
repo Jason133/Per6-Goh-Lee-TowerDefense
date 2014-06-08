@@ -14,7 +14,7 @@ public class Driver {
 	// The enemies come
 	public static void wave(Map a) {
 		for (int i = 0; i < 20; i++) {
-			Scanner scan = new Scanner(System.in);
+			/*Scanner scan = new Scanner(System.in);
 			boolean keepGoing = true;
 			while (keepGoing) {
 				System.out.println("If you want to quit, type -1, else type in anything");
@@ -25,7 +25,7 @@ public class Driver {
 					a.addStuff();
 				}
 				System.out.println(a.toString());
-			}
+			}*/
 			Enemy goin = new Enemy(a);
 			addEnemyToList(a.getEnemyList(),goin);
 			a.EnemyMove();
@@ -62,8 +62,15 @@ public class Driver {
 	
 	public static void main(String[] args) {
 		Map a = new Map("BalancedMap.txt");
-		System.out.println(a.toString());
-		wave(a);
+		for (int i = 0; i < a.getWidth(); i++) {
+			for (int j = 0; j < a.getLength(); j++) {
+				System.out.print(a.getMap(j, i) + ",");
+			}
+			System.out.println();
+		}
+		
+		//System.out.println(a.toString());
+		//wave(a);
 		//System.out.println(a.getMap(0, 3).getXcor() + "," + a.getMap(0,3).getYcor());
 		//System.out.println(a.getMap(3,0).getXcor() + "," + a.getMap(3,0).getYcor());
 		//System.out.println(a.getLength());
