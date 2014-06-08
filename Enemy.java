@@ -1,7 +1,11 @@
 import java.util.ArrayList;
 
+import processing.core.PApplet;
+import processing.core.PImage;
+
 public class Enemy {
 
+	private PApplet parent;
 	protected ArrayList<EnemyTile> visited = new ArrayList<EnemyTile>();
 	protected int xcor, ycor;
 	protected Map world;
@@ -10,11 +14,12 @@ public class Enemy {
 	protected EnemyTile nextloc;
 
 	// Spawns the Enemy at the spawn Point
-	public Enemy(Map world) {
+	public Enemy(PApplet p, Map world) {
 		this.world = world;
 		// Haven't spawned before yet
 		// Hunts for that 3
 		// Only should run once
+		parent = p;
 		boolean hasloaded = false;
 		for (int i = 0; i < world.getLength(); i++) {
 			for (int j = 0; j < world.getWidth(); j++) {
@@ -129,4 +134,11 @@ public class Enemy {
 		nextloc = this.spawnNext(currentloc);
 		movement(nextloc);
 	}
+	
+	public void display() {
+		PImage pi = parent.loadImage("image.jpg");
+		parent.image(pi, 50*xcor, 50*ycor, 50, 50);
+		//movement(pi);
+	}
+	
 }
